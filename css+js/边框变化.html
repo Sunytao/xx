@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding:0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: rgba(0, 0, 0, .6);
+    }
+    .out {
+      width: 300px;
+      height: 400px;
+      background-color: black;
+      margin:100px auto;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+    }
+
+    .out::before {
+      position: absolute;
+      content: '';
+      width: 500px;
+      height: 500px;
+      background-image: conic-gradient(transparent,transparent,transparent,rgb(161, 126, 60));
+      animation: animate 3s linear infinite;
+    }
+
+    .out::after {
+      position: absolute;
+      content: '';
+      width: 500px;
+      height: 500px;
+      background-image: conic-gradient(transparent,transparent,transparent,rgb(60, 165, 139));
+      animation: animate 3s linear infinite;
+      animation-delay: -2s;
+    }
+    @keyframes animate {
+      0%{
+        transform: rotate(0deg);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+    span {
+      width: 280px;
+      height: 380px;
+      background-color: black;
+      position: absolute;
+      border-radius: 25px;
+      z-index: 2;
+    }
+    p {
+      position: absolute;
+      color: azure;
+      z-index: 999;
+      font-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="out">
+    <span></span>
+    <p>1</p>
+  </div>
+</body>
+</html>
