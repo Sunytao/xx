@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #10131c;
+    }
+    .nageti {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      background-color: #212532;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s;
+      transition-delay:0.8s ;
+    }
+    .nageti.active {
+      width: 200px;
+      height: 200px;
+      transition-delay: 0s;
+    }
+    .nageti span {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translate(calc(12px * var(--x)),calc(12px * var(--y)));
+      transition: all 0.2s;
+      transition-delay: calc(0.1s * var(--i));
+      border-radius: 5px;
+      /* transition-delay:0.2s ; */
+    }
+    .nageti.active span {
+      width: 45px;
+      height: 45px;
+      transform: translate(calc(60px * var(--x)),calc(60px * var(--y)));
+      border-radius: 50%;
+      background-color: #333849;
+    }
+    .nageti span ion-icon{
+      font-size: 0em;
+      transition: 0.5s;
+    }
+    .nageti.active span ion-icon{
+      font-size: 1.35em;
+      transition: 0.5s;
+      color: aliceblue;
+    }
+    .nageti.active span ion-icon:hover{
+      color: aqua;
+      filter: drop-shadow(0 0 5px aqua) drop-shadow(0 0 10px aqua);
+    }
+  </style>
+</head>
+<body>
+  <div class="nageti">
+    <span style="--i:0; --x:-1; --y:0">
+      <ion-icon name="accessibility-outline"></ion-icon></span>
+    <span style="--i:1; --x:0; --y:-1">
+      <ion-icon name="book-outline"></ion-icon></span>
+    <span style="--i:2; --x:1; --y:0">
+      <ion-icon name="aperture-outline"></ion-icon></span>
+    <span style="--i:3; --x:0; --y:1">
+      <ion-icon name="basketball-outline"></ion-icon></span>
+    <span style="--i:4; --x:0; --y:0">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon></span>
+    <span style="--i:5; --x:-1; --y:1">
+      <ion-icon name="color-filter-outline"></ion-icon></span>
+    <span style="--i:6; --x:1; --y:1">
+      <ion-icon name="flower-outline"></ion-icon></span>
+    <span style="--i:7; --x:-1; --y:-1">
+      <ion-icon name="heart-circle-outline"></ion-icon></span>
+    <span style="--i:8; --x:1; --y:-1">
+      <ion-icon name="qr-code-outline"></ion-icon></span>
+
+  </div>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+  document.querySelector('.nageti').onclick = ()=>{
+    document.querySelector('.nageti').classList.toggle('active')
+  }
+</script>
+</html>
